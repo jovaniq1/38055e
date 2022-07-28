@@ -67,7 +67,7 @@ function Pagination({
             key={key}
             className="paginationItem"
             aria-current={
-              currentPage === 1
+              pageNumber === 1
                 ? "false"
                 : currentPage === pageNumber
                 ? "page"

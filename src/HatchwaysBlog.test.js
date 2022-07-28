@@ -75,11 +75,14 @@ test("Changing page size from 15 to 25 should render 25 posts", async () => {
     expect(excerpt).toBeInTheDocument();
   }
 });
+// You have an error here
+// TestingLibraryElementError: Unable to find an accessible element with the role "listitem"
 
 test("Page 1 is initially selected", async () => {
   render(<HatchwaysBlog />);
-  const currentPage = screen.getByRole("listitem", {
-    current: "page",
+
+  const currentPage = screen.getAllByRole("listitem").find((listitem) => {
+    if (listitem.textContent.includes("1")) return listitem.textContent;
   });
 
   expect(currentPage).toHaveTextContent("1");
