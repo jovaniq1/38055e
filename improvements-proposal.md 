@@ -1,0 +1,46 @@
+
+## Questions
+
+Question 1 
+Right now the data for the posts is coming from a json file. 
+
+What changes would you have to make to the application if it came from an API? 
+
+In what type of hook should you use to fetch the data and why? What other considerations would you have to make?
+
+Question 2
+Part of this application uses the package nanoid to generate keys.
+
+ What issue would this cause for generating keys in React?
+
+
+## Recommended Solution Question 1:
+
+When implementing an API I will have to implement a loading stage as well as account for server errors.
+
+I will implement the pagination in the back-end, this will help in scaling in case we have thousands of blogs.
+
+I will only fetch what the user selects in the front-end.
+
+Depending on how the API sends the data I will need to adjust the data to be in an array to be compatible with our current code. 
+
+If we fetch data from an API I will have to used two hooks useState and useEffect.
+
+UseState will allow me to save the data and also make sure the Dom renders when the state is updated.
+
+useEffect will allow me fetch the data and re-render the Dom once I get ahold of the API data. 
+
+
+## Question 2:
+
+Will cause performance issues because every time a component key changes React will create a new component instance instead of updating
+the current component.
+
+Another issue is that we will not be able to reorder our blogs.
+
+Implementing the keys in the back-end as well as saving the key as a property of a blog into the database will be a better solution.
+
+
+
+
+
